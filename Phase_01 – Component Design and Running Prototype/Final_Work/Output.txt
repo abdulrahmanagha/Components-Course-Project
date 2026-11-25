@@ -1,0 +1,25 @@
+______________________________________________________________________
+
+      Campus Cafe Ordering System (Checkpoint 1 Prototype) 
+______________________________________________________________________
+
+--- Demonstration: Worked Example (No Discount) ---
+==========================================
+           CAMPUS CAFE RECEIPT
+==========================================
+Sandwich (P02) x2 @ 5.00 = 10.00
+Coffee (P01) x1 @ 2.50 = 2.50
+------------------------------------------
+Subtotal:       12.50
+Pricing Policy: No Discount
+Discount:       0.00
+Final Total:    12.50
+==========================================
+
+
+--- Automated Verification Tests (Checkpoint 1) ---
+T01 (ValidOrderNoDiscount): PASS
+T04 (EmptyOrder_ThrowsArgumentException): PASS
+T06 (ZeroQuantity_ThrowsArgumentException): PASS
+---------------------------------------------------
+Test Summary: 3 Passed, 0 Failed (Total: 3)

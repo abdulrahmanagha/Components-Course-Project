@@ -364,7 +364,6 @@ namespace CampusCafeOrderingSystem
 
             decimal rawPayable = _pricingPolicy.Apply(subtotal);
 
-            // Post-condition contract guard: validate policy output BEFORE rounding
             if (rawPayable < 0m || rawPayable > subtotal)
             {
                 throw new InvalidOperationException(
@@ -433,14 +432,13 @@ namespace CampusCafeOrderingSystem
             Console.WriteLine("\t  Campus Cafe Ordering System (Checkpoint 1 Prototype) ");
             Console.WriteLine("______________________________________________________________________\n");
 
-            // 1. Composition Root: instantiate concrete components and inject via interfaces
             IProductCatalogue catalogue = new InMemoryCatalogue();
             IPricingPolicy noDiscountPolicy = new NoDiscount();
             IReceiptFormatter detailedFormatter = new DetailedReceiptFormatter();
 
             var orderService = new OrderService(catalogue, noDiscountPolicy);
 
-            // 2. Run Worked Acceptance Example (2x P02 Sandwich, 1x P01 Coffee, No Discount)
+            // Run Worked Acceptance Example (2x P02 Sandwich, 1x P01 Coffee, No Discount)
             Console.WriteLine("--- Demonstration: Worked Example (No Discount) ---");
             try
             {
@@ -461,7 +459,7 @@ namespace CampusCafeOrderingSystem
 
             Console.WriteLine();
 
-            // 3. Execute automated test suite (T01, T04, T06)
+            // Execute automated test suite (T01, T04, T06)
             TestRunner.RunAllTests();
         }
     }
